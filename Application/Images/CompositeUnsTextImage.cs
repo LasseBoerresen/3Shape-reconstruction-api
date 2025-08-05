@@ -1,3 +1,13 @@
-﻿namespace Application.Images;
+﻿using Domain.Physiology;
 
-public record CompositeUnsTextImage(string Value);
+namespace Application.Images;
+
+public record CompositeUnsTextImage(string Value)
+{
+    public static CompositeUnsTextImage FromJaw(Jaw jaw)
+    {
+        throw new NotImplementedException(
+            "Create Composite uns texxt image by calling Jaw.GenerateImages "
+            + "and then converting them to UnsTextImage and stiching them together");
+    }
+}

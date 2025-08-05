@@ -1,3 +1,11 @@
-﻿namespace Application.Images;
+﻿using System.Collections;
 
-public record UnsTextImage(string Value);
+namespace Application.Images;
+
+public record UnsTextImage(string Value)
+{
+    public IEnumerable<ToothImage> ToToothImages()
+    {
+        throw new NotImplementedException();
+    }
+}

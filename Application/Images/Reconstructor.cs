@@ -1,9 +1,15 @@
-﻿namespace Application.Images;
+﻿using Domain.Physiology;
+
+namespace Application.Images;
 
 public static class Reconstructor
 {
     public static CompositeUnsTextImage ReconstructCompositeImage(UnsTextImages images)
     {
-        throw new NotImplementedException("Actually create jaw, add images and generate composite image ");
+        var emptyJaw = Jaw.CreateEmpty();
+
+        var reconstructedJaw = emptyJaw.AddToothImages(images.ToToothImages());
+            
+        return CompositeUnsTextImage.FromJaw(reconstructedJaw);
     }
 }
