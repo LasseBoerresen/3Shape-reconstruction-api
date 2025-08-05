@@ -18,9 +18,10 @@
 ### Domain Model
 
 I always want to build up a rich domain model, and even though this is a small test challenge, it is good to get started. So far I imagine: 
-a. A Jaw with JawId, having a set of teeth and rules to avoid mixing upper and lower jaw
-b. Tooth with ToothId and a set of partial ToothImages received so far 
-c. ToothImage of variable length optional floating point pixels, which can be merged with other partial images using mean (or other merge method, median) per pixel, to get the best reconstruction.
+1. A Jaw with JawId, having a set of teeth and rules to avoid mixing upper and lower jaw 
+2. Tooth with ToothId and a set of partial ToothImages received so far 
+3. ToothImage of variable length optional floating point pixels, which can be merged with other partial images using mean (or other merge method, median) per pixel, to get the best reconstruction.
+4. UNS number with associated rules, since it is a standard in the dentist industry
 
 
 ### Architecture
