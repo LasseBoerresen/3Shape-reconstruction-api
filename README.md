@@ -32,7 +32,11 @@ A simple architecture should suffice here, maybe two layers for dependency.
 - domain layer with Jaw and Tooth objects, handling their respective reconstruction responsibilites
 - Test project depending on everything else.
 
-I imagine this as a jaw reconstruction library, so I will not waste time on creating a main layer with e.g. console application etc. 
+I imagine this as a jaw reconstruction library, so I will not waste time on creating a main layer with e.g. console application etc.
+
+
+#### Elaborate directory structure
+Even if this is a small sample project, I imagine it is mean to evolve into a fully fledged reconstruction application, so I take the liberty to add what I see as appropriate grouping of files, folling the "screaming architecture" idea from "Clean architecture", meaning that the domain, such as physiologi and image processing should be clearly visible in the project structure. 
 
 ### Further Questions
 
