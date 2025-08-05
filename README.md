@@ -31,12 +31,18 @@ A simple architecture should suffice here, maybe two layers for dependency.
 - api layer handling the input and output format of UnsTextImage, depending on the domain layer and consuming a jaw to convert it to a full image. We also have two types of images, single and stitched, one with constant length, and one variable. 
 - domain layer with Jaw and Tooth objects, handling their respective reconstruction responsibilites
 - Test project depending on everything else.
+  - Inspired by GOOS (Growing Object Oriented Software, Guided by Tests), I have general acceptance tests that exercise the entire application, end to end, guiding what to build with test driven development and focused unittests
+    - Unit tests drive features in individual objects and are sufficiently elaborate to exercise both happy paths, all foreseen edge and error cases. 
 
 I imagine this as a jaw reconstruction library, so I will not waste time on creating a main layer with e.g. console application etc.
 
 
 #### Elaborate directory structure
 Even if this is a small sample project, I imagine it is mean to evolve into a fully fledged reconstruction application, so I take the liberty to add what I see as appropriate grouping of files, folling the "screaming architecture" idea from "Clean architecture", meaning that the domain, such as physiologi and image processing should be clearly visible in the project structure. 
+
+#### Many small, but so far pretty empty objects
+
+I believe that all domain concepts should have a name and a class of some sort, to encourage encapsulation, and an appropriate place to put future functionality. Even if many objects, such as UnsTextImageList might not do so much other than IEnumerable yet, it probably will and it already helps a great deal to help draw up the contours of what this application is made of and works on. Already, it make the code easier to understand, because we are not just passing anonymous IEnumerables around, no, this is a very specific kind of object.
 
 ### Further Questions
 
@@ -48,7 +54,8 @@ A: Perhaps there should simply be different adapters to the common UNS domain mo
 
 Q: Are each "textImage" of a specific tooth always the same width? Like 4 or 3 pixels? Or could they vary, creating a need to decide the correct image width from inconsistent source images
  
-
+Q: How do we expect to receive the images in a more realistic scenario? I imageine they stream in, and we want to continously create a more and more complete reconstruction. 
+A: For now, the api simply receives the UnsTextImages and returns the reconstruction as a batch operation, but next steps could be to store a partly reconstructed jaw, and adding updates to it on the fly. 
 
 
 ## Source material for coding challenge:
