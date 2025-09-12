@@ -1,4 +1,6 @@
-﻿namespace Application.Images;
+﻿using Domain.Images;
+
+namespace Api.Images;
 
 public record UnsTextImages(IEnumerable<UnsTextImage> Images)
 {

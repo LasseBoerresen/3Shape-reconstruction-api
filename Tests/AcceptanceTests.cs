@@ -1,5 +1,5 @@
-﻿using Application;
-using Application.Images;
+﻿using Api.Images;
+using Application;
 using Tests.General;
 using FluentAssertions;
 

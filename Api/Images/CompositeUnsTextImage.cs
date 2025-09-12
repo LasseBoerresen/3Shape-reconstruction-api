@@ -1,6 +1,6 @@
 ﻿using Domain.Physiology;
 
-namespace Application.Images;
+namespace Api.Images;
 
 public record CompositeUnsTextImage(string Value)
 {

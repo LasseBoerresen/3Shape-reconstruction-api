@@ -1,6 +1,6 @@
-﻿using System.Collections;
+﻿using Domain.Images;
 
-namespace Application.Images;
+namespace Api.Images;
 
 public record UnsTextImage(string Value)
 {
