@@ -1,4 +1,4 @@
-﻿using Application.Images;
+﻿using Domain.Images;
 
 namespace Domain.Physiology;
 

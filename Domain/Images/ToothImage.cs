@@ -1,5 +1,5 @@
 ﻿using Domain.Physiology;
 
-namespace Application.Images;
+namespace Domain.Images;
 
 public record ToothImage(UnsNumber Number, PartialImage1D Image);

@@ -1,5 +1,5 @@
 ﻿using LanguageExt;
 
-namespace Application.Images;
+namespace Domain.Images;
 
 public record PartialImage1D(IEnumerable<Option<Pixel>> Pixels);
