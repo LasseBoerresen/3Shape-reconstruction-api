@@ -6,7 +6,7 @@ namespace Tests;
 public class AcceptanceTests
 {
     [Fact]
-    public void GivenEmptyUnsTextImages__WhenReconstructCompositeImage__ThenReturnsEmptyCompositeUnsTextImage()
+    public void GivenEmptyUnsTextImages__WhenReconstructCompositeUnsTextImage__ThenReturnsEmptyCompositeUnsTextImage()
     {
         // Given
         UnsTextImages emptyImages = new([]);
@@ -14,7 +14,7 @@ public class AcceptanceTests
         // When
         var reconstructor = Reconstructor.CreateDefault();
         
-        var actualCompositeImage = reconstructor.ReconstructCompositeImage(emptyImages);
+        var actualCompositeImage = reconstructor.ReconstructCompositeUnsTextImage(emptyImages);
 
         // Then
         CompositeUnsTextImage expected = new("");
@@ -25,7 +25,7 @@ public class AcceptanceTests
     // TODO Convert into Theory
 
     [Fact]
-    public void GivenFullExampleOfImages__WhenReconstructCompositeImage__ThenReturnsNonEmptyCompositeUnsTextImage()
+    public void GivenFullExampleOfImages__WhenReconstructCompositeUnsTextImage__ThenReturnsNonEmptyCompositeUnsTextImage()
     {
         // Given
         UnsTextImages fullExampleImages = new([
@@ -57,7 +57,7 @@ public class AcceptanceTests
         
         var reconstructor = Reconstructor.CreateDefault();
         
-        var actualCompositeImage = reconstructor.ReconstructCompositeImage(fullExampleImages);
+        var actualCompositeImage = reconstructor.ReconstructCompositeUnsTextImage(fullExampleImages);
 
         // Then
         actualCompositeImage.Value.Should().NotBe("");

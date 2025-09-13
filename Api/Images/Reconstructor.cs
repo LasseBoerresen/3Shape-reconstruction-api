@@ -2,7 +2,7 @@ namespace Api.Images;
 
 public interface Reconstructor
 {
-    public CompositeUnsTextImage ReconstructCompositeImage(UnsTextImages images);
+    public CompositeUnsTextImage ReconstructCompositeUnsTextImage(UnsTextImages images);
 
     public static Reconstructor CreateDefault()
     {

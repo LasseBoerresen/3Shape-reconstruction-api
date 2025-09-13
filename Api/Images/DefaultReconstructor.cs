@@ -4,7 +4,7 @@ namespace Api.Images;
 
 internal class DefaultReconstructor : Reconstructor
 {
-    public CompositeUnsTextImage ReconstructCompositeImage(UnsTextImages images)
+    public CompositeUnsTextImage ReconstructCompositeUnsTextImage(UnsTextImages images)
     {
         var emptyJaw = Jaw.CreateEmpty();
 
