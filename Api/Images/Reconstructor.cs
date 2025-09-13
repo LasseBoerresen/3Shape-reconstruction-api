@@ -6,6 +6,8 @@ public interface Reconstructor
 
     public static Reconstructor CreateDefault()
     {
-        return new DefaultReconstructor();
+        var applicationReconstructor = Application.Reconstructor.CreateDefault();
+        
+        return new DefaultReconstructor(applicationReconstructor);
     }
 }
