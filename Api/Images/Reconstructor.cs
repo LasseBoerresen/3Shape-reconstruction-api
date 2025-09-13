@@ -1,15 +1,11 @@
-﻿using Domain.Physiology;
-
 namespace Api.Images;
 
-public static class Reconstructor
+public interface Reconstructor
 {
-    public static CompositeUnsTextImage ReconstructCompositeImage(UnsTextImages images)
-    {
-        var emptyJaw = Jaw.CreateEmpty();
+    public CompositeUnsTextImage ReconstructCompositeImage(UnsTextImages images);
 
-        var reconstructedJaw = emptyJaw.AddToothImages(images.ToToothImages());
-            
-        return CompositeUnsTextImage.FromJaw(reconstructedJaw);
+    public static Reconstructor CreateDefault()
+    {
+        return new DefaultReconstructor();
     }
 }

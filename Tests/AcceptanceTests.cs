@@ -1,6 +1,4 @@
 ﻿using Api.Images;
-using Application;
-using Tests.General;
 using FluentAssertions;
 
 namespace Tests;
@@ -14,7 +12,9 @@ public class AcceptanceTests
         UnsTextImages emptyImages = new([]);
         
         // When
-        var actualCompositeImage = Reconstructor.ReconstructCompositeImage(emptyImages);
+        var reconstructor = Reconstructor.CreateDefault();
+        
+        var actualCompositeImage = reconstructor.ReconstructCompositeImage(emptyImages);
 
         // Then
         CompositeUnsTextImage expected = new("");
@@ -54,9 +54,12 @@ public class AcceptanceTests
         ]);
 
         // When
-        var actualComposite = Reconstructor.ReconstructCompositeImage(fullExampleImages);
+        
+        var reconstructor = Reconstructor.CreateDefault();
+        
+        var actualCompositeImage = reconstructor.ReconstructCompositeImage(fullExampleImages);
 
         // Then
-        actualComposite.Value.Should().NotBe("");
+        actualCompositeImage.Value.Should().NotBe("");
     }
 }
