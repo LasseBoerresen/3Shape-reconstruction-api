@@ -21,6 +21,8 @@ public class AcceptanceTests
         
         actualCompositeImage.Should().Be(expected);
     }
+    
+    // TODO Convert into Theory
 
     [Fact]
     public void GivenFullExampleOfImages__WhenReconstructCompositeImage__ThenReturnsNonEmptyCompositeUnsTextImage()
