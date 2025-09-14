@@ -44,6 +44,29 @@ public class AcceptanceTests
                     Then: "output is \"\""),
                 InputImages: new([]),
                 ExpectedCompositeImage: new("")),
+                
+            new(
+                Summary: new(
+                    Id: "0.1", 
+                    Given: "One single tooth input image", 
+                    Then: "output is that image\"\""),
+                InputImages: new(
+                [
+                    new("1oene"),
+                ]),
+                ExpectedCompositeImage: new("1oene")),
+                
+            new(
+                Summary: new(
+                    Id: "0.2", 
+                    Given: "Two overlapping images of 2 teeth without disagreement", 
+                    Then: "output is the union"),
+                InputImages: new(
+                [
+                    new("1oene"),
+                    new("ene2e")
+                ]),
+                ExpectedCompositeImage: new("1oene2e")),
         ];
     }
 
