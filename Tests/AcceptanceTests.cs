@@ -77,7 +77,7 @@ public class AcceptanceTests
 
     [Theory]
     [MemberData(nameof(DataFor_GivenEmptyUnsTextImages__WhenReconstructCompositeUnsTextImage__ThenReturnsEmptyCompositeUnsTextImage))]
-    void GivenEmptyUnsTextImages__WhenReconstructCompositeUnsTextImage__ThenReturnsEmptyCompositeUnsTextImage(
+    void GivenUnsTextImages__WhenReconstructCompositeUnsTextImage__ThenReturnsExpectedCompositeUnsTextImage(
         InputFor_ReconstructCompositeUnsTextImage input)
     {
         // Given
