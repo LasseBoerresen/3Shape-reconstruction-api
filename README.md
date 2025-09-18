@@ -73,8 +73,8 @@ More info on what to expect: you will meet Gustav (in person), our group manager
 I'm looking forward to meeting you! See you then!
 
 
-### PDF
-Introduction
+# PDF
+## Introduction
 Dentists use different numbering systems to identify teeth. One of these, the Universal
 Numbering System (UNS), numbers teeth from 1 through 32 going from the upper right molar
 furthest back to the opposite molar on the lower jaw.
@@ -86,6 +86,7 @@ library consumers. We reconstruct one jaw at a time, so we only expect the denti
 either the upper or lower jaw at a time. We output the reconstructed model to consumers, who in
 turn provide end user tooling, such as marking specific teeth for preparation and intended
 restoration.
+
 Let's assume that incoming images are strings of text, a proxy for the real data we receive to
 simplify this assignment. These strings are a subset of the full model to be reconstructed. Each
 incoming image usually contains a distinguishing visual element, which we will represent as the
@@ -98,7 +99,7 @@ always perfect, and you may receive images which deviate from the "ground truth"
 example: "1ofne" deviates from "1oene" by a "distance" of 1, since "f" is one character away
 from "e".
 
-Task description
+## Task description
 The goal of this task is not to create a completely functional, nor "perfect" solution, to the
 scenario described above. Doing so understandably requires a significant amount of time.
 Instead, we only expect you to spend 1-2 hours on this task, and to prioritize your work as you
@@ -108,18 +109,22 @@ providing a fully functional solution to a single aspect of the problem you deep
 send us the output of your work (source files, diagrams, analysis, remaining to-do items,
 important questions) prior to the interview. A GitHub repository invite would be preferred.
 Focus on the following features (C# is recommended for code if you are familiar with it):
-■ Receive images from the scanner and forward them to the reconstruction engine. You
+
+- Receive images from the scanner and forward them to the reconstruction engine. You
 can use Appendix A which represents image input from the scanner.
-■ Return the currently reconstructed model from the reconstruction engine, e.g.,
+- Return the currently reconstructed model from the reconstruction engine, e.g.,
 "1oene2enoe3neoo4aei5iia" described in the introduction.
-■ Get the geometry of a specific tooth from a reconstructed model. E.g. return "1oene"
+- Get the geometry of a specific tooth from a reconstructed model. E.g. return "1oene"
 when the upper right molar furthest in the back is requested.
-■ Create a case to be sent to a lab with a tooth marked for a specific restoration.
+- Create a case to be sent to a lab with a tooth marked for a specific restoration.
 Think of the solution as a monolith which consumes a reconstruction API; not a distributed
 application. The technical interview will be a combination of discussing your solution, as well as
 parts of the solution you did not get around to work on.
 
-Appendix: example scanner data
+
+## Appendix: Example scanner data
+
+```
 1oene
 ene2e
 2enoe
@@ -142,4 +147,4 @@ acd12
 i5iii
 iia6a
 a6aab
-
+```
