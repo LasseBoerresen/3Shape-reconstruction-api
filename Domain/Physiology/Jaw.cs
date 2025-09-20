@@ -2,15 +2,12 @@
 
 namespace Domain.Physiology;
 
-public record Jaw(JawId Id)
+// TODO Add identifier for upper or lower jar and rules for which teeth can be stored where
+public record Jaw(JawId Id, JawPosition jawPosition)
 {
-    public static Jaw CreateEmpty()
+    // TODO rename to CreateNew().
+    public static Jaw Create(JawPosition jawPosition)
     {
-        return new(new JawId(Guid.NewGuid()));
-    }
-
-    public Jaw AddToothImages(IEnumerable<ToothImage> toothImages)
-    {
-        throw new NotImplementedException("Store all partial tooth images grouped by UnsNumber");
+        return new(new JawId(Guid.NewGuid()), jawPosition);
     }
 }

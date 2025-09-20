@@ -1,4 +1,5 @@
 ﻿using Api.Images;
+using Domain.Physiology;
 using FluentAssertions;
 using Tests.General;
 
@@ -42,6 +43,7 @@ public class AcceptanceTests
                     Id: "0.0", 
                     Given: "No input images", 
                     Then: "output is \"\""),
+                JawPosition.Upper,
                 InputImages: new([]),
                 ExpectedCompositeImage: new("")),
                 
@@ -50,6 +52,7 @@ public class AcceptanceTests
                     Id: "0.1", 
                     Given: "One single tooth input image", 
                     Then: "output is that image\"\""),
+                JawPosition.Upper,
                 InputImages: new(
                 [
                     new("1oene"),
@@ -61,6 +64,7 @@ public class AcceptanceTests
                     Id: "0.2", 
                     Given: "Two overlapping images of 2 teeth without disagreement", 
                     Then: "output is the union"),
+                JawPosition.Upper,
                 InputImages: new(
                 [
                     new("1oene"),
@@ -72,6 +76,7 @@ public class AcceptanceTests
 
     public record InputFor_ReconstructCompositeUnsTextImage(
         TheoryCaseSummary Summary, 
+        JawPosition JawPosition,
         UnsTextImages InputImages, 
         CompositeUnsTextImage ExpectedCompositeImage);
 
@@ -81,10 +86,10 @@ public class AcceptanceTests
         InputFor_ReconstructCompositeUnsTextImage input)
     {
         // Given
-        var reconstructor = Reconstructor.CreateDefault();
+        var reconstructor = Reconstructor.CreateInMemory();
         
         // When
-        var actualCompositeImage = reconstructor.ReconstructCompositeUnsTextImage(input.InputImages);
+        var actualCompositeImage = reconstructor.ReconstructCompositeUnsTextImage(input.InputImages, input.JawPosition);
 
         // Then
         actualCompositeImage.Should().Be(input.ExpectedCompositeImage);
@@ -94,11 +99,11 @@ public class AcceptanceTests
     public void GivenFullExampleOfImages__WhenReconstructCompositeUnsTextImage__ThenReturnsNonEmptyCompositeUnsTextImage()
     {
         // Given
-        var reconstructor = Reconstructor.CreateDefault();
+        var reconstructor = Reconstructor.CreateInMemory();
         // TODO move duplicate reconstructor setup to class level. 
 
         // When
-        var actualCompositeImage = reconstructor.ReconstructCompositeUnsTextImage(FullExampleImages);
+        var actualCompositeImage = reconstructor.ReconstructCompositeUnsTextImage(FullExampleImages, JawPosition.Upper);
 
         // Then
         actualCompositeImage.Value.Should().NotBe("");

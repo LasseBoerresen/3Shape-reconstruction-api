@@ -1,0 +1,4 @@
+# Notes on separating image management from actual tooth reconstruction algorithm
+Reconstruction of a single partial tooth image from many partial images, is complicated enough on its own, that it should probably be a single responsibility. In this toy problem, each individual tooth is completely separable from each other, and stitching them together is simply a matter of concatenation. We should have "reconstruction engine" which constructs the merged partial tooth image from a list of partial ones.
+
+From the api's perspective, we really want two things. To add new UnsTextImages to a JawModel and, and to retrieve the best JawImage from that model. At differnt times and frequencies. 

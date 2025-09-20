@@ -5,11 +5,11 @@ namespace Application;
 
 public interface Reconstructor
 {
-    Jaw Reconstruct(IEnumerable<ToothImage> toothImages);
+    Jaw Reconstruct(IEnumerable<ToothImage> toothImages, Jaw jaw);
 
-    static Reconstructor CreateDefault()
+    static Reconstructor CreateInMemory()
     {
-        return new DefaultReconstructor();
+        return new InMemoryReconstructor();
     }
 }
 

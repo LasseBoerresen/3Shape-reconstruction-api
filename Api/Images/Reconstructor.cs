@@ -1,13 +1,21 @@
+using Domain.Physiology;
+
 namespace Api.Images;
 
+/// <summary>
+/// The purpose of this interface
+/// </summary>
 public interface Reconstructor
 {
-    public CompositeUnsTextImage ReconstructCompositeUnsTextImage(UnsTextImages images);
+    
+    public CompositeUnsTextImage ReconstructCompositeUnsTextImage(
+        UnsTextImages images, 
+        JawPosition jawPosition);
 
-    public static Reconstructor CreateDefault()
+    public static Reconstructor CreateInMemory()
     {
-        var applicationReconstructor = Application.Reconstructor.CreateDefault();
+        var applicationReconstructor = Application.Reconstructor.CreateInMemory();
         
-        return new DefaultReconstructor(applicationReconstructor);
+        return new InMemoryReconstructor(applicationReconstructor);
     }
 }

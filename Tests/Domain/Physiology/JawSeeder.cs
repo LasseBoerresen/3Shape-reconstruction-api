@@ -7,7 +7,7 @@ public static class JawSeeder
 {
     public static Jaw CreateEmptyJaw()
     {
-        return new(CreateDefaultJawId());
+        return new(CreateDefaultJawId(), JawPosition.Upper);
     }
 
     public static JawId CreateDefaultJawId()
