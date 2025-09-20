@@ -5,7 +5,7 @@ namespace Application;
 
 internal class InMemoryReconstructor : Reconstructor
 {
-    public Jaw Reconstruct(IEnumerable<ToothImage> toothImages, Jaw jaw)
+    public JawImage ReconstructJawImage(IEnumerable<ToothImage> toothImages, Jaw jaw)
     {
         throw new NotImplementedException("actually orchestrate reconstruction");
     }

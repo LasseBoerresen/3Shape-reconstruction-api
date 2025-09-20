@@ -15,9 +15,10 @@ internal class InMemoryReconstructor(Application.Reconstructor ApplicationRecons
         var jaw = Jaw.Create(jawPosition);
         
         
-        var reconstructedJaw = ApplicationReconstructor.Reconstruct(toothImages, jaw);
+        var reconstructedJawImage = ApplicationReconstructor
+            .ReconstructJawImage(toothImages, jaw);
             
-        return CompositeUnsTextImage.FromJaw(reconstructedJaw);
+        return CompositeUnsTextImage.FromJaw(reconstructedJawImage);
     }
 }
 

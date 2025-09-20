@@ -48,7 +48,7 @@ public class ReconstructorTests
         var reconstructor = Reconstructor.CreateInMemory();
 
         // When
-        var actualJawImage = reconstructor.Reconstruct(input.ToothImages, emptyJaw);
+        var actualJawImage = reconstructor.ReconstructJawImage(input.ToothImages, emptyJaw);
 
         // Then
         actualJawImage.Should().Be(input.ExpectedJawImage);

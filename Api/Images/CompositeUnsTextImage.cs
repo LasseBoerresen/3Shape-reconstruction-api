@@ -1,10 +1,11 @@
-﻿using Domain.Physiology;
+﻿using Domain.Images;
+using Domain.Physiology;
 
 namespace Api.Images;
 
 public record CompositeUnsTextImage(string Value)
 {
-    public static CompositeUnsTextImage FromJaw(Jaw jaw)
+    public static CompositeUnsTextImage FromJaw(JawImage jawImage)
     {
         return new CompositeUnsTextImage("");
     

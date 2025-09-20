@@ -5,7 +5,7 @@ namespace Application;
 
 public interface Reconstructor
 {
-    Jaw Reconstruct(IEnumerable<ToothImage> toothImages, Jaw jaw);
+    JawImage ReconstructJawImage(IEnumerable<ToothImage> toothImages, Jaw jaw);
 
     static Reconstructor CreateInMemory()
     {
