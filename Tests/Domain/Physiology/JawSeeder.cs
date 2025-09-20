@@ -5,7 +5,7 @@ namespace Tests.Domain.Physiology;
 
 public static class JawSeeder
 {
-    public static Jaw CreateEmptyJaw()
+    public static Jaw CreateJaw()
     {
         return new(CreateDefaultJawId(), JawPosition.Upper);
     }

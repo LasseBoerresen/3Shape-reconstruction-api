@@ -15,7 +15,7 @@ public class ReconstructorTests
         IEnumerable<ToothImage> ToothImages,
         JawImage ExpectedJawImage);
 
-    static Jaw TestJaw = JawSeeder.CreateEmptyJaw(); 
+    static Jaw TestJaw = JawSeeder.CreateJaw(); 
 
     public static TheoryData<Input> DataFor_Given_When_Then()
     {
@@ -44,7 +44,7 @@ public class ReconstructorTests
     void GivenEmptyJawModel_And_ToothImages__WhenAddToothImages__ThenJawModelHasExpectedImages(Input input)
     {
         // Given
-        var emptyJaw = JawSeeder.CreateEmptyJaw();
+        var emptyJaw = JawSeeder.CreateJaw();
         var reconstructor = Reconstructor.CreateInMemory();
 
         // When
