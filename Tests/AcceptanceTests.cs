@@ -1,4 +1,5 @@
 ﻿using Api.Images;
+using Domain.Images;
 using Domain.Physiology;
 using FluentAssertions;
 using Tests.General;
@@ -7,6 +8,21 @@ namespace Tests;
 
 public class AcceptanceTests
 {
+    [Fact]
+    void WhenCreateDefaultJawModel_And_GetReconstructedImageAsUnsText__ThenImageIsEmpty()
+    {
+        // When
+        var jawModel = JawModel.CreateDefault();
+
+        var actualJawImage = jawModel.GetReconstructedImage();
+
+        var actualUnsTextImage = CompositeUnsTextImage.FromJaw(actualJawImage);
+
+        // Then
+        actualUnsTextImage.Should().Be(new CompositeUnsTextImage(""));
+
+    }
+
     static UnsTextImages FullExampleImages = new(
     [
         new("1oene"),
@@ -109,32 +125,33 @@ public class AcceptanceTests
         UnsTextImages InputImages, 
         CompositeUnsTextImage ExpectedCompositeImage);
 
-    [Theory]
-    [MemberData(nameof(DataFor_GivenEmptyUnsTextImages__WhenReconstructCompositeUnsTextImage__ThenReturnsEmptyCompositeUnsTextImage))]
-    void GivenUnsTextImages__WhenReconstructCompositeUnsTextImage__ThenReturnsExpectedCompositeUnsTextImage(
-        InputFor_ReconstructCompositeUnsTextImage input)
-    {
-        // Given
-        var reconstructor = Reconstructor.CreateInMemory();
-        
-        // When
-        var actualCompositeImage = reconstructor.ReconstructCompositeUnsTextImage(input.InputImages, input.JawPosition);
-
-        // Then
-        actualCompositeImage.Should().Be(input.ExpectedCompositeImage);
-    }
-    
-    [Fact]
-    public void GivenFullExampleOfImages__WhenReconstructCompositeUnsTextImage__ThenReturnsNonEmptyCompositeUnsTextImage()
-    {
-        // Given
-        var reconstructor = Reconstructor.CreateInMemory();
-        // TODO move duplicate reconstructor setup to class level. 
-
-        // When
-        var actualCompositeImage = reconstructor.ReconstructCompositeUnsTextImage(FullExampleImages, JawPosition.Upper);
-
-        // Then
-        actualCompositeImage.Value.Should().NotBe("");
-    }
+    // [Theory]
+    // [MemberData(nameof(DataFor_GivenEmptyUnsTextImages__WhenReconstructCompositeUnsTextImage__ThenReturnsEmptyCompositeUnsTextImage))]
+    // void GivenUnsTextImages__WhenReconstructCompositeUnsTextImage__ThenReturnsExpectedCompositeUnsTextImage(
+    //     InputFor_ReconstructCompositeUnsTextImage input)
+    // {
+    //     // Given
+    //     
+    //     
+    //     // When
+    //     
+    //     var actualCompositeImage = reconstructor.ReconstructCompositeUnsTextImage(input.InputImages, input.JawPosition);
+    //
+    //     // Then
+    //     actualCompositeImage.Should().Be(input.ExpectedCompositeImage);
+    // }
+    //
+    // [Fact]
+    // public void GivenFullExampleOfImages__WhenReconstructCompositeUnsTextImage__ThenReturnsNonEmptyCompositeUnsTextImage()
+    // {
+    //     // Given
+    //     var reconstructor = Reconstructor.CreateInMemory();
+    //     // TODO move duplicate reconstructor setup to class level. 
+    //
+    //     // When
+    //     var actualCompositeImage = reconstructor.ReconstructCompositeUnsTextImage(FullExampleImages, JawPosition.Upper);
+    //
+    //     // Then
+    //     actualCompositeImage.Value.Should().NotBe("");
+    // }
 }

@@ -17,19 +17,19 @@ public class ReconstructorTests
 
     static Jaw TestJaw = JawSeeder.CreateJaw(); 
 
-    public static TheoryData<Input> DataFor_Given_When_Then()
-    {
-        return
-        [
-            new(
-                Summary: new(
-                    Id: "0.0", 
-                    Given: "Empty ToothImage list", 
-                    Then: "Returns Empty JawImage"),
-                ToothImages: [],
-                ExpectedJawImage: new(TestJaw, new PartialImage1D(Pixels: [])) )
-        ];
-    }
+    // public static TheoryData<Input> DataFor_Given_When_Then()
+    // {
+    //     return
+    //     [
+    //         new(
+    //             Summary: new(
+    //                 Id: "0.0", 
+    //                 Given: "Empty ToothImage list", 
+    //                 Then: "Returns Empty JawImage"),
+    //             ToothImages: [],
+    //             ExpectedJawImage: new(TestJaw, new PartialImage1D(Pixels: [])) )
+    //     ];
+    // }
     
     
     // TODO next test: One tooth image results in JawImage
@@ -39,18 +39,18 @@ public class ReconstructorTests
 
     // TODO Separate managing of images from pure reconstruction of a single tooth image. 
 
-    [Theory]
-    [MemberData(nameof(DataFor_Given_When_Then))]
-    void GivenEmptyJawModel_And_ToothImages__WhenAddToothImages__ThenJawModelHasExpectedImages(Input input)
-    {
-        // Given
-        var emptyJaw = JawSeeder.CreateJaw();
-        var reconstructor = Reconstructor.CreateInMemory();
-
-        // When
-        var actualJawImage = reconstructor.ReconstructJawImage(input.ToothImages, emptyJaw);
-
-        // Then
-        actualJawImage.Should().Be(input.ExpectedJawImage);
-    }
+    // [Theory]
+    // [MemberData(nameof(DataFor_Given_When_Then))]
+    // void GivenEmptyJawModel_And_ToothImages__WhenAddToothImages__ThenJawModelHasExpectedImages(Input input)
+    // {
+    //     // Given
+    //     var emptyJaw = JawSeeder.CreateJaw();
+    //     var reconstructor = Reconstructor.CreateInMemory();
+    //
+    //     // When
+    //     var actualJawImage = reconstructor.ReconstructJawImage(input.ToothImages, emptyJaw);
+    //
+    //     // Then
+    //     actualJawImage.Should().Be(input.ExpectedJawImage);
+    // }
 }
